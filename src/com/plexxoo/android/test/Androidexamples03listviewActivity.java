@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class Androidexamples03listviewActivity 
 extends ListActivity {
-	
+	/*
 	public static final String [] CANTANTES={
 		 "Aretha Franklin","Carra","Bonie M",  "Bee Gees",
 		"Blues Brothers", "Ray Charles", "ABBA",
@@ -24,23 +24,26 @@ extends ListActivity {
 		"Bonie M", "Carra", "Aretha Franklin", "Bee Gees",
 		"Blues Brothers", "Ray Charles", "ABBA"
 	};
-	
+	*/
     /** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 
-//	  setListAdapter(
-//			  new ArrayAdapter<String>(
-//					  this, R.layout.list_item, 
-//					  COUNTRIES));
 
-	  ListView lv = getListView();
-	  ArrayAdapter<String> adapter=new ArrayAdapter<String>(
+
+		ListView lv = getListView();
+	  /*
+		ArrayAdapter<String> adapter=new ArrayAdapter<String>(
 			  Androidexamples03listviewActivity.this,
 			  R.layout.list_item, 
 			  CANTANTES);
 	  lv.setAdapter(adapter);
+	  */
+		setListAdapter(
+				new ArrayAdapter<String>(
+						this, R.layout.list_item,
+						PAISES));
 	  lv.setTextFilterEnabled(true);
 
 	  lv.setOnItemClickListener(
@@ -50,20 +53,21 @@ extends ListActivity {
 	    		View view,
 	        int position, long id) {
 	      // When clicked, show a toast with the TextView text
-//	      Toast.makeText(
-//	    		  getApplicationContext(), 
-//	    		  ((TextView) view).getText(),
-//	    		  Toast.LENGTH_SHORT).show();
-	    	Toast.makeText(
+	      Toast.makeText(
+	    		  getApplicationContext(),
+	    		  ((TextView) view).getText(),
+	    		  Toast.LENGTH_SHORT).show();
+	    	/*
+			Toast.makeText(
 		    		  getApplicationContext(), 
 		    		  CANTANTES[position],
-		    		  Toast.LENGTH_SHORT).show();
+		    		  Toast.LENGTH_SHORT).show();*/
 	    }
 
 
 	  });
 	}
-	/*
+
 	static final String[] PAISES = new String[] {
 	    "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra",
 	    "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina",
@@ -107,6 +111,6 @@ extends ListActivity {
 	    "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Wallis and Futuna", "Western Sahara",
 	    "Yemen", "Yugoslavia", "Zambia", "Zimbabwe"
 	  };
-	*/
+
 
 }
